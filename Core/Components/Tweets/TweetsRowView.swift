@@ -66,7 +66,7 @@ struct TweetsRowView: View {
                     .foregroundColor(.blue)
                 VStack(alignment: .leading) {
                     // User Info
-                    HStack {
+                    HStack(spacing: 5) {
                         // User Name
                         // TODO: Replace with User FirstName + LastName
                         Text("Bruce Wayne")
