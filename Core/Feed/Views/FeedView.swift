@@ -9,7 +9,13 @@ import SwiftUI
 
 struct FeedView: View {
     var body: some View {
-        Text("Feed View")
+        ScrollView {
+            LazyVStack {
+                ForEach(0 ... 20, id: \.self) { _ in
+                    Text("Tweet Row View")
+                }
+            }
+        }
     }
 }
 
