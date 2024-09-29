@@ -72,6 +72,7 @@ struct TweetsRowView: View {
                         Text("Bruce Wayne")
                             .font(.subheadline).bold()
                         VerifiedSealView()
+                            .font(.subheadline)
                         // User Handle (@userhandle)
                         // TODO: Replace with User Handle
                         Text("@batman")
