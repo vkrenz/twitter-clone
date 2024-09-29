@@ -71,6 +71,7 @@ struct TweetsRowView: View {
                         // TODO: Replace with User FirstName + LastName
                         Text("Bruce Wayne")
                             .font(.subheadline).bold()
+                        VerifiedSealView()
                         // User Handle (@userhandle)
                         // TODO: Replace with User Handle
                         Text("@batman")
