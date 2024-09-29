@@ -9,18 +9,20 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             headerView
+            actionButtons
             
-            HStack() {
-                Spacer()
-                
-                Image(systemName: "bell.badge")
-                    .font(.subheadline)
-                    .padding(6)
-                    .overlay(Circle().stroke(Color.gray, lineWidth: 0.75))
+            VStack(alignment: .leading, spacing: 4) {
+                HStack(alignment: .center) {
+                    Text("Heath Ledger")
+                        .font(.title2).bold()
+                    VerifiedSealView()
+                        .font(.subheadline).bold()
+                }
+
             }
-            .padding(.top, 6)
+            .padding(.horizontal)
             
             Spacer()
         }
@@ -85,6 +87,29 @@ extension ProfileView {
             .padding(.horizontal)
         }
         .frame(width: .infinity, height: 100)
+    }
+    var actionButtons: some View {
+        HStack(spacing: 12 ) {
+            Spacer()
+            
+            Image(systemName: "bell.badge")
+                .font(.subheadline)
+                .padding(6)
+                .overlay(Circle().stroke(Color.gray, lineWidth: 0.75))
+            Button {
+                
+            } label: {
+                Text("Edit Profile")
+                    .font(.subheadline)
+                    .bold()
+                    .foregroundColor(.black)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 6)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray, lineWidth: 0.75))
+            }
+
+        }
+        .padding()
     }
     
 }

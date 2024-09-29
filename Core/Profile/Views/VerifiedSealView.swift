@@ -13,7 +13,6 @@ struct VerifiedSealView: View {
     
     var body: some View {
         Image(systemName: "checkmark.seal.fill")
-            .font(.caption)
             .foregroundColor(.blue)
     }
 }
