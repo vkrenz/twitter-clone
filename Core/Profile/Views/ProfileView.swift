@@ -18,6 +18,10 @@ struct ProfileView: View {
             userDetails
             userStats
             
+            HStack {
+                
+            }
+            
             Spacer()
         }
     }
@@ -111,7 +115,7 @@ extension ProfileView {
             HStack(alignment: .center) {
                 // TODO: Replace with User First
                 // User First + Last Name
-                Text("Victor")
+                Text("Victor Krenzel")
                     .font(.title2).bold()
                 VerifiedSealView(userIsVerified: userIsVerified)
                     .font(.subheadline).bold()
@@ -133,7 +137,7 @@ extension ProfileView {
             
             // TODO: Replace with User Handle
             // User Handle
-            Text("@joker")
+            Text("@vic")
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
