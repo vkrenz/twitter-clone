@@ -2,12 +2,13 @@
 //  ProfileView.swift
 //  Twitter
 //
-//  Created by ☠️ Vicc on 2024-09-29.
+//  Created by ☠️ Vicc on 2024-09-29. 
 //
 
 import SwiftUI
 
 struct ProfileView: View {
+    @State private var selectedOption: TweetFilterViewModel = .Tweets
     var userIsVerified = true
     var body: some View {
         VStack(alignment: .leading) {
@@ -19,7 +20,11 @@ struct ProfileView: View {
             userStats
             
             HStack {
-                
+                ForEach(TweetFilterViewModel.allCases,  id: \.rawValue) { option in
+                    VStack {
+                        Text(option.title)
+                    }
+                }
             }
             
             Spacer()
