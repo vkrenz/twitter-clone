@@ -20,36 +20,9 @@ struct ProfileView: View {
             userDetails
             userStats
             
-            HStack {
-                ForEach(TweetFilterViewModel.allCases,  id: \.rawValue) { option in
-                    VStack {
-                        Text(option.title)
-                            .font(.subheadline)
-                            .fontWeight(selectedOption == option ? .bold : .regular)
-                            .foregroundColor(selectedOption == option ? .black : .gray)
-                        
-                        if selectedOption == option {
-                            Capsule()
-                                .foregroundColor(.blue)
-                                .frame(height: 3)
-                                .matchedGeometryEffect(id:"option"  , in: animation)
-                        } else {
-                            Capsule()
-                                .foregroundColor(.clear)
-                                .frame(height: 3)
-                        }
-                    }
-                    .onTapGesture {
-                        withAnimation(.easeInOut ) {
-                            self.selectedOption = option
-                        }
-                    }
-                }
-            }
-            .overlay {
-                Divider()
-                    .offset(y:16)
-            }
+            tweetFilterOptionsBar
+            
+            tweetsView
             
             Spacer()
         }
@@ -240,9 +213,49 @@ extension ProfileView {
         }
         .padding()
     }
+    var tweetFilterOptionsBar: some View {
+        HStack {
+            ForEach(TweetFilterViewModel.allCases,  id: \.rawValue) { option in
+                VStack {
+                    Text(option.title)
+                        .font(.subheadline)
+                        .fontWeight(selectedOption == option ? .bold : .regular)
+                        .foregroundColor(selectedOption == option ? .black : .gray)
+                    
+                    if selectedOption == option {
+                        Capsule()
+                            .foregroundColor(.blue)
+                            .frame(height: 3)
+                            .matchedGeometryEffect(id:"option"  , in: animation)
+                    } else {
+                        Capsule()
+                            .foregroundColor(.clear)
+                            .frame(height: 3)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.easeInOut ) {
+                        self.selectedOption = option
+                    }
+                }
+            }
+        }
+        .overlay {
+            Divider()
+                .offset(y:16)
+        }
+    }
     // Header End
     
-    
+    var tweetsView: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(0 ... 9, id: \.self) { _ in
+                    TweetsRowView()
+                }
+            }
+        }
+    }
 }
 
 #Preview {

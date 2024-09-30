@@ -160,7 +160,7 @@ struct TweetsRowView: View {
                 }
             }
         }
-        .padding(.horizontal)
+        .padding()
         Divider()
     }
 }
