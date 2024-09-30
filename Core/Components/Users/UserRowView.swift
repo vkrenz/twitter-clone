@@ -10,7 +10,7 @@ import SwiftUI
 struct UserRowView: View {
     var userIsVerified = true
     var body: some View {
-        HStack() {
+        HStack(spacing: 12) {
             Circle()
                 .frame(width: 48)
                 .foregroundColor(.black)
