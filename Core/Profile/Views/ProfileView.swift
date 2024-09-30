@@ -2,13 +2,14 @@
 //  ProfileView.swift
 //  Twitter
 //
-//  Created by ☠️ Vicc on 2024-09-29. 
+//  Created by ☠️ Vicc on 2024-09-29.
 //
 
 import SwiftUI
 
 struct ProfileView: View {
     @State private var selectedOption: TweetFilterViewModel = .Tweets
+    @Namespace var animation
     var userIsVerified = true
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,8 +24,31 @@ struct ProfileView: View {
                 ForEach(TweetFilterViewModel.allCases,  id: \.rawValue) { option in
                     VStack {
                         Text(option.title)
+                            .font(.subheadline)
+                            .fontWeight(selectedOption == option ? .bold : .regular)
+                            .foregroundColor(selectedOption == option ? .black : .gray)
+                        
+                        if selectedOption == option {
+                            Capsule()
+                                .foregroundColor(.blue)
+                                .frame(height: 3)
+                                .matchedGeometryEffect(id:"option"  , in: animation)
+                        } else {
+                            Capsule()
+                                .foregroundColor(.clear)
+                                .frame(height: 3)
+                        }
+                    }
+                    .onTapGesture {
+                        withAnimation(.easeInOut ) {
+                            self.selectedOption = option
+                        }
                     }
                 }
+            }
+            .overlay {
+                Divider()
+                    .offset(y:16)
             }
             
             Spacer()
