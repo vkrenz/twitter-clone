@@ -13,10 +13,12 @@ struct UserRowView: View {
         HStack() {
             Circle()
                 .frame(width: 48)
+                .foregroundColor(.black)
             VStack(alignment: .leading) {
                 HStack {
                     Text("Victor Krenzel")
                         .font(.subheadline).bold()
+                        .foregroundColor(.black)
                     VerifiedSealView(userIsVerified: userIsVerified)
                         .font(.caption)
                 }

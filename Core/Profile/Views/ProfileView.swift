@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var selectedOption: TweetFilterViewModel = .Tweets
+    @Environment(\.presentationMode) var mode
     @Namespace var animation
     var userIsVerified = true
     var body: some View {
@@ -40,7 +41,7 @@ extension ProfileView {
                 HStack {
                     // Back button
                     Button {
-                        
+                        mode.wrappedValue.dismiss()
                     } label: {
                         ZStack(){
                             Circle()
