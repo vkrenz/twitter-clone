@@ -31,15 +31,6 @@ struct ContentView: View {
                 .offset(x: showMenu ? 0 : -300, y: 0 )
                 .animation(.easeInOut(duration: 0.3), value: showMenu)
                 .background(showMenu ? Color.white : Color.clear)
-                .overlay {
-                    if showMenu {
-                        Capsule()
-                            .foregroundColor(.gray.opacity(0.3))
-                            .frame(width: 0.75, height: .infinity)
-                            .ignoresSafeArea(.all)
-                            .offset(x:150)
-                    }
-                }
         }
         .navigationTitle("Home")
         .navigationBarTitleDisplayMode(.inline)

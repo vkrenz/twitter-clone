@@ -38,8 +38,11 @@ struct SideMenuView: View {
                         SideMenuOptionRowView(viewModel: viewModel)
                     }
                 } else if viewModel == .Logout {
-                    // TODO: Add Logout Handler
-                    // code
+                    NavigationLink {
+                        // TODO: Add Logout Handler/
+                    } label: {
+                        SideMenuOptionRowView(viewModel: viewModel)
+                    }
                 } else {
                     SideMenuOptionRowView(viewModel: viewModel)
                 }
