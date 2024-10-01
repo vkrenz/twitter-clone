@@ -32,6 +32,9 @@ struct ContentView: View {
                 .animation(.easeInOut(duration: 0.3), value: showMenu)
                 .background(showMenu ? Color.white : Color.clear)
         }
+        .onAppear {
+            showMenu = false
+        }
         .navigationTitle("Home")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

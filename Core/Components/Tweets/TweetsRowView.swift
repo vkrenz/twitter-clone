@@ -159,9 +159,10 @@ struct TweetsRowView: View {
                     .foregroundColor(.gray)
                 }
             }
+            .padding(.top)
         }
         .padding(.horizontal)
-        .padding(.vertical, 5)
+        .padding(.bottom, 5)
         Divider()
     }
 }
