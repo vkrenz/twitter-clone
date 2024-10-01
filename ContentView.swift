@@ -12,8 +12,10 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             MainTabView()
-                .blur(radius: showMenu ? 10 : 0)
-                .animation(.easeInOut(duration: 0), value: showMenu)
+                .blur(radius: showMenu ? 5 : 0)
+                .offset(x: showMenu ? 300 : 0, y:0)
+                .animation(.easeInOut(duration: 0.3), value: showMenu)
+                .transition(.slide)
             // MainTabView Shadow if showMenu
             if showMenu {
                 ZStack {
@@ -29,8 +31,18 @@ struct ContentView: View {
             SideMenuView()
                 .frame(width: 300)
                 .offset(x: showMenu ? 0 : -300, y: 0 )
-                .animation(.easeInOut(duration: 0.3), value: showMenu)
                 .background(showMenu ? Color.white : Color.clear)
+                .animation(.easeInOut(duration: 0.3), value: showMenu)
+                .transition(.slide)
+                .overlay {
+                    if showMenu {
+                        Capsule()
+                            .foregroundColor(Color.gray.opacity(0.1))
+                            .frame(width: 1, height: .infinity)
+                            .ignoresSafeArea(.all)
+                            .offset(x: 150)
+                    }
+                }
         }
         .onAppear {
             showMenu = false
