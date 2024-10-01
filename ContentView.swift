@@ -12,7 +12,6 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             MainTabView()
-                .navigationBarHidden(showMenu)
                 .blur(radius: showMenu ? 10 : 0)
                 .animation(.easeInOut(duration: 0), value: showMenu)
             // MainTabView Shadow if showMenu
@@ -45,17 +44,19 @@ struct ContentView: View {
         .navigationTitle("Home")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
-                Button(action: {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        showMenu.toggle()
-                    }
-                }, label: {
-                    // TODO: Replace with User Profile Photo
-                    // User Profile Photo
-                    Circle()
-                        .frame(width: 32, height: 32)
-                })
+            if showMenu == false {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showMenu.toggle()
+                        }
+                    }, label: {
+                        // TODO: Replace with User Profile Photo
+                        // User Profile Photo
+                        Circle()
+                            .frame(width: 32, height: 32)
+                    })
+                }
             }
         }
     }
