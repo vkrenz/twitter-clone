@@ -154,13 +154,14 @@ struct TweetsRowView: View {
                             }
                         }
                     }
-                    .padding(.top)
+                    .padding(.top, 5)
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 }
             }
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 5)
         Divider()
     }
 }
