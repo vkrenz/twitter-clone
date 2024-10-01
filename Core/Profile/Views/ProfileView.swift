@@ -116,7 +116,7 @@ extension ProfileView {
     var userBasicInfo: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(alignment: .center) {
-                // TODO: Replace with User First
+                // TODO: Replace with User First + Last Name
                 // User First + Last Name
                 Text("Victor Krenzel")
                     .font(.title2).bold()
@@ -196,23 +196,8 @@ extension ProfileView {
         .padding(.horizontal)
     }
     var userStats: some View {
-        HStack(spacing: 10) {
-            HStack(spacing: 3) {
-                Text("350")
-                    .font(.caption)
-                    .bold()
-                Text("Following")
-                    .font(.caption)
-            }
-            HStack(spacing: 3) {
-                Text("2K")
-                    .font(.caption)
-                    .bold()
-                Text("Followers")
-                    .font(.caption)
-            }
-        }
-        .padding()
+        UserStatsView()
+            .padding()
     }
     var tweetFilterOptionsBar: some View {
         HStack {
