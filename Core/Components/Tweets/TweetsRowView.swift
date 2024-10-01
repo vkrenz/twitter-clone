@@ -62,7 +62,7 @@ struct TweetsRowView: View {
                 // Profile Pic
                 // TODO: Replace with UserProfilePicture
                 Circle()
-                    .frame(width: 40, height: 40)
+                    .frame(width: 52, height: 52)
                     .foregroundColor(.blue)
                 VStack(alignment: .leading) {
                     // User Info

@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showMenu: Bool = true
+    @State private var showMenu: Bool = false
     var body: some View {
         ZStack(alignment: .topLeading) {
             MainTabView()
+                .navigationBarHidden(showMenu)
             // MainTabView Shadow if showMenu
             if showMenu {
                 ZStack {
@@ -56,5 +57,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    NavigationView {
+        ContentView()
+    }
 }
