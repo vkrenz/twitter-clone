@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "bird.fill")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Twitter Clone")
+        ZStack(alignment: .topLeading) {
+            MainTabView()
         }
-        .padding()
+        .navigationTitle("Home")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
