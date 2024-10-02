@@ -19,30 +19,31 @@ struct ContentView: View {
             // MainTabView Shadow if showMenu
             if showMenu {
                 ZStack {
-                    Color.black.opacity(showMenu ? 0.25 : 0)
+                    Color.black.opacity(showMenu ? 0.05 : 0)
                         .ignoresSafeArea(.all)
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 showMenu = false
                             }
                         }
+                        .transition(.opacity)
                 }
             }
-            SideMenuView()
-                .frame(width: 300)
-                .offset(x: showMenu ? 0 : -300, y: 0 )
-                .background(showMenu ? Color.white : Color.clear)
-                .animation(.easeInOut(duration: 0.3), value: showMenu)
-                .transition(.slide)
-                .overlay {
-                    if showMenu {
+            if showMenu {
+                SideMenuView()
+                    .frame(width: 300)
+                    .offset(x: 0, y: 0)
+                    .background(Color.white)
+                    .animation(.easeInOut(duration: 0.3), value: showMenu)
+                    .overlay {
                         Capsule()
-                            .foregroundColor(Color.gray.opacity(0.1))
-                            .frame(width: 1, height: .infinity)
+                            .foregroundColor(Color.black.opacity(0.25))
+                            .frame(width: 0.75, height: .infinity)
                             .ignoresSafeArea(.all)
                             .offset(x: 150)
                     }
-                }
+            }
+
         }
         .onAppear {
             showMenu = false
