@@ -15,6 +15,7 @@ struct NewTweetsView: View {
                     // TODO: Handle Dismiss
                 } label: {
                     Text("Cancel")
+                        .padding(.horizontal)
                         .foregroundColor(.blue)
                 }
                 Spacer()
@@ -32,7 +33,8 @@ struct NewTweetsView: View {
             }
             .padding()
             HStack {
-                
+                Circle()
+                    .frame(width: 38, height: 38)
             }
             Spacer()
         }
