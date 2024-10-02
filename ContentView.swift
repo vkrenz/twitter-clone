@@ -48,7 +48,7 @@ struct ContentView: View {
         .onAppear {
             showMenu = false
         }
-        .navigationTitle("Home")
+        .navigationTitle("Twitter")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if showMenu == false {
