@@ -9,7 +9,33 @@ import SwiftUI
 
 struct NewTweetsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Button {
+                    // TODO: Handle Dismiss
+                } label: {
+                    Text("Cancel")
+                        .foregroundColor(.blue)
+                }
+                Spacer()
+                Button {
+                    // TODO: Handle Post
+                } label: {
+                    Text("Post")
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
+                        .clipShape(Capsule())
+                }
+            }
+            .padding()
+            HStack {
+                
+            }
+            Spacer()
+        }
     }
 }
 
