@@ -11,10 +11,14 @@ struct SideMenuView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 32) {
             VStack(alignment: .leading) {
-                // TODO: Replace with User Profile Photo
-                // User Profile Photo
-                Circle()
-                    .frame(width: 48)
+                NavigationLink {
+                    ProfileView()
+                } label: {
+                    // TODO: Replace with User Profile Photo
+                    // User Profile Photo
+                    Circle()
+                        .frame(width: 48)
+                }
                 VStack(alignment: .leading, spacing: 4) {
                     // TODO: Replace with User First + Last Name
                     // User First + Last Name

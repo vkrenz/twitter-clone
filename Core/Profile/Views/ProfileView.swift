@@ -241,6 +241,7 @@ extension ProfileView {
                 }
             }
         }
+        .ignoresSafeArea(.all)
     }
 }
 
