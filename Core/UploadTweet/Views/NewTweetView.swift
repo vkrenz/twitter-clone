@@ -1,5 +1,5 @@
 //
-//  NewTweetsView.swift
+//  NewTweetView.swift
 //  Twitter
 //
 //  Created by ☠️ Vicc on 2024-10-01.
@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct NewTweetsView: View {
+struct NewTweetView: View {
+    @State private var caption = ""
     var body: some View {
         VStack {
             HStack {
@@ -32,15 +33,17 @@ struct NewTweetsView: View {
                 }
             }
             .padding()
-            HStack {
+            HStack(alignment: .top) {
                 Circle()
                     .frame(width: 38, height: 38)
+                
+                TextArea("What's happening?", text: $caption)
             }
-            Spacer()
+            .padding() 
         }
     }
 }
 
 #Preview {
-    NewTweetsView()
+    NewTweetView()
 }
