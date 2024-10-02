@@ -9,11 +9,12 @@ import SwiftUI
 
 struct NewTweetView: View {
     @State private var caption = ""
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack {
             HStack {
                 Button {
-                    // TODO: Handle Dismiss
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Cancel")
                         .padding(.horizontal)
@@ -39,7 +40,7 @@ struct NewTweetView: View {
                 
                 TextArea("What's happening?", text: $caption)
             }
-            .padding() 
+            .padding()
         }
     }
 }
