@@ -18,11 +18,19 @@ struct LoginView: View {
                     .font(.largeTitle)
                     .fontWeight(.semibold)
             }
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(height: 260)
+            .background(Color(.systemBlue))
+            .foregroundColor(.white)
+            
+            Spacer()
             
             VStack {
                  
             }
         }
+        .ignoresSafeArea(.all)
     }
 }
 
