@@ -65,6 +65,22 @@ struct LoginView: View {
             .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y:0)
             
             Spacer()
+            
+            NavigationLink {
+                RegistrationView()
+                    .navigationBarHidden(true )
+            } label: {
+                HStack {
+                    Text("Don't have an account?")
+                        .font(.footnote)
+                    Text("Sign Up")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                }
+            }
+            .padding(.bottom, 32)
+            .foregroundColor(Color(.systemBlue))
+            
         }
         .ignoresSafeArea(.all)
     }
