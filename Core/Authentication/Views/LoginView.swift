@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State private var email = ""
+    @State private var password = ""
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -27,8 +30,11 @@ struct LoginView: View {
             
             Spacer()
             
-            VStack {
-                 
+            VStack(spacing: 40) {
+                 // TODO: Make these into custom Email TextFields
+                TextField("Email", text: $email)
+                // TODO: Make these into custom Password TextFields
+               TextField("Password", text: $password)
             }
         }
         .ignoresSafeArea(.all)
