@@ -28,14 +28,31 @@ struct LoginView: View {
             .foregroundColor(.white)
             .clipShape(RoundedShape(corners: [.bottomRight]))
             
-            Spacer()
-            
             VStack(spacing: 40) {
                  // TODO: Make these into custom Email TextFields
                 TextField("Email", text: $email)
                 // TODO: Make these into custom Password TextFields
                TextField("Password", text: $password)
             }
+            .padding(.horizontal, 32)
+            .padding(.top, 44)
+            
+            HStack {
+                Spacer()
+                NavigationLink {
+                    // TODO: Create and replace with ResetPasswordView
+                } label: {
+                    Text("Forgot Password?")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.blue)
+                        .padding(.top)
+                        .padding(.trailing, 24)
+                }
+
+            }
+            
+            Spacer()
         }
         .ignoresSafeArea(.all)
     }
