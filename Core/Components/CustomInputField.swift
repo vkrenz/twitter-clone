@@ -13,7 +13,19 @@ struct CustomInputField: View {
     @Binding var text: String
      
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Image(systemName: imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(Color(.darkGray))
+                
+                TextField(placeholderText, text: $text )
+            }
+            Divider()
+                .background(Color(.darkGray))
+        }
     }
 }
 
