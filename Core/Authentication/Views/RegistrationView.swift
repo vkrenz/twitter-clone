@@ -9,7 +9,22 @@ import SwiftUI
 
 struct RegistrationView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            VStack(alignment: .leading) {
+                 Text("Hello.")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                Text("Welcome Back ")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+            }
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(height: 260)
+            .background(Color(.systemBlue))
+            .foregroundColor(.white)
+            .clipShape(RoundedShape(corners: [.bottomRight]))
+        }
     }
 }
 
