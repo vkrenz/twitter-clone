@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct AuthHeaderView: View {
+    let top_title: String
+    let bottom_title: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+             Text(top_title)
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+            Text(bottom_title)
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+        }
+        .padding(.horizontal)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(height: 260)
+        .background(Color(.systemBlue))
+        .foregroundColor(.white)
+        .clipShape(RoundedShape(corners: [.bottomRight]))
     }
 }
 
 #Preview {
-    AuthHeaderView()
+    AuthHeaderView(top_title: "Hello,", bottom_title: "Welcome back")
 }

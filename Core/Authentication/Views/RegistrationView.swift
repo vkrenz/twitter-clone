@@ -8,23 +8,54 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @State private var email: String = ""
+    @State private var username : String = ""
+    @State private var fullName: String = ""
+    @State private var password: String = "" 
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
-            VStack(alignment: .leading) {
-                 Text("Hello.")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                Text("Welcome Back ")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
+            AuthHeaderView(top_title: "Get started.", bottom_title: "Create your account.")
+            
+            VStack(spacing: 40) {
+                CustomInputField(imageName: "envelope", placeholderText: "Email", text: $email)
+                CustomInputField(imageName: "person", placeholderText: "Username ", text: $username)
+                CustomInputField(imageName: "person", placeholderText: "Full Name", text: $fullName)
+                CustomInputField(imageName: " ", placeholderText: "Password", text: $password)
             }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .frame(height: 260)
-            .background(Color(.systemBlue))
-            .foregroundColor(.white)
-            .clipShape(RoundedShape(corners: [.bottomRight]))
+            .padding(32)
+            
+            Button(action: {
+                // TODO: Handle Sign Up
+            }, label: {
+                Text("Sign Up ")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 340, height: 50)
+                    .background(Color(.systemBlue))
+                    .clipShape(Capsule())
+                    .padding()
+            })
+            .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y:0)
+            
+            Spacer()
+            
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                HStack {
+                    Text("Already have an account?")
+                        .font(.footnote)
+                    Text("Sign In")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                }
+            }
+            .padding(.bottom, 32)
         }
+        .ignoresSafeArea(.all)
     }
 }
 
