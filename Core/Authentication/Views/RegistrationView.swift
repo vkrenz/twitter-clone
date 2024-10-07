@@ -17,13 +17,13 @@ struct RegistrationView: View {
     
     var body: some View {
         VStack {
-            AuthHeaderView(top_title: "Get started.", bottom_title: "Create your account.")
+            AuthHeaderView(top_title: "Get started.", bottom_title: "Create your account.", authHeaderViewVariant: .Default)
             
             VStack(spacing: 40) {
-                CustomInputField(imageName: "envelope", placeholderText: "Email", text: $email)
-                CustomInputField(imageName: "person", placeholderText: "Username ", text: $username)
-                CustomInputField(imageName: "person", placeholderText: "Full Name", text: $fullName)
-                CustomInputField(imageName: " ", placeholderText: "Password", text: $password)
+                CustomInputField(imageName: "envelope", placeholderText: "Email", variant: .Outline, text: $email)
+                CustomInputField(imageName: "person", placeholderText: "Username ", variant: .Outline, text: $username)
+                CustomInputField(imageName: "person", placeholderText: "Full Name", variant: .Outline, text: $fullName)
+                CustomInputField(imageName: "lock", placeholderText: "Password", variant: .Outline, text: $password)
             }
             .padding(32)
             
