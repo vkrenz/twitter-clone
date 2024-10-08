@@ -82,83 +82,88 @@ struct LoginView: View {
         else if loginViewVariant == .Alternative {
             VStack {
                 VStack {
-                    Image("Twitter_Logo_Fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 80, height: 80)
-                        .padding(.top, 100)
-                        .padding(.bottom, 50)
-                    
                     VStack {
-                        Text("See what's")
-                        Text("happening in the")
-                        Text("world right now.")
+                        Image("Twitter_Logo_Fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 80, height: 80)
+                            .padding(.top, 100)
+                            .padding(.bottom, 50)
+                        
+                        VStack {
+                            Text("See what's")
+                            Text("happening in the")
+                            Text("world right now.")
+                        }
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 110)
+                        
+                        VStack(spacing: 20) {
+                            CustomInputField(imageName: "person", placeholderText: "Phone, Email or Username", variant: .Capsule, text: $email)
+                                .shadow(color: Color(.systemBlue).opacity(0.5), radius: 20, x: 0, y: 0)
+                            CustomInputField(imageName: "lock", placeholderText: "Password", variant: .Capsule, text: $password)
+                                .shadow(color: Color(.systemBlue).opacity(0.5), radius: 20, x: 0, y: 0)
+                            NavigationLink {
+                                // TODO: Create and replace with ResetPasswordView
+                            } label: {
+                                Text("Forgot Password?")
+                                    .font(.caption)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical, 40)
                     }
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    
-                    VStack(spacing: 20) {
-                        CustomInputField(imageName: "person", placeholderText: "Email", variant: .Capsule, text: $email)
-                        CustomInputField(imageName: "lock", placeholderText: "Password", variant: .Capsule, text: $password)
-                        NavigationLink {
-                            // TODO: Create and replace with ResetPasswordView
-                        } label: {
-                            Text("Forgot Password?")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .background(Color("LightBlue"))
+    //                .background(Gradient(colors: [Color("LightBlue"), Color.white]))
+                    .foregroundColor(.white)
+                }
+                .ignoresSafeArea(.container, edges: [.leading, .trailing])
+                .navigationBarHidden(true)
+                
+                Spacer()
+                
+                VStack {
+                    VStack {
+                        Button(action: {
+                            // TODO: Handle Sign In
+                        }, label: {
+                            Text("Sign In")
+                                .foregroundColor(Color("LightBlue"))
+                                .padding(7)
+                        })
+                        .padding(12)
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            Capsule()
+                                .stroke(Color("LightBlue"), lineWidth: 2)
                         }
                     }
                     .padding(.horizontal)
-                    .padding(.vertical, 50)
+                    .padding(.top, 42)
+
+                    
+                    NavigationLink {
+                        RegistrationView()
+                            .navigationBarHidden(true)
+                    } label: {
+                        HStack {
+                            Text("Don't have an account?")
+                                .font(.footnote)
+                            Text("Sign Up")
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    .padding(.vertical, 42)
+                    .foregroundColor(Color(.systemBlue))
                 }
                 .padding(.horizontal)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .background(Color("LightBlue"))
-//                .background(Gradient(colors: [Color("LightBlue"), Color.white]))
-                .foregroundColor(.white)
             }
-            .ignoresSafeArea(.all)
-            .navigationBarHidden(true)
-            
-            Spacer()
-            
-            VStack(spacing: 50) {
-                VStack {
-                    Button(action: {
-                        // TODO: Handle Sign In
-                    }, label: {
-                        Text("Sign In")
-                            .foregroundColor(Color("LightBlue"))
-                            .padding(7)
-                    })
-                    .padding(12)
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        Capsule()
-                            .stroke(Color("LightBlue"), lineWidth: 2)
-                    }
-                }
-                .padding(.horizontal)
-
-                
-                NavigationLink {
-                    RegistrationView()
-                        .navigationBarHidden(true)
-                } label: {
-                    HStack {
-                        Text("Don't have an account?")
-                            .font(.footnote)
-                        Text("Sign Up")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                    }
-                }
-                .padding(.bottom, 32)
-                .foregroundColor(Color(.systemBlue))
-            }
-            .padding(.horizontal)
-
         }
     }
 }
