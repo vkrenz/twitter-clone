@@ -21,8 +21,8 @@ struct TwitterApp: App {
         WindowGroup {
             NavigationView {
                 ContentView()
-                    .environmentObject(viewModel)
             }
+            .environmentObject(viewModel)
         }
     }
 }
