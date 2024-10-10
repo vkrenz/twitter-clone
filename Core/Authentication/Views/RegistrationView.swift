@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     @State private var email: String = ""
     @State private var username : String = ""
     @State private var fullName: String = ""
@@ -29,6 +31,7 @@ struct RegistrationView: View {
             
             Button(action: {
                 // TODO: Handle Sign Up
+                viewModel.register(withEmail: email, password: password, fullName: fullName, username: username)
             }, label: {
                 Text("Sign Up ")
                     .font(.headline)
