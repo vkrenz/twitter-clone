@@ -17,7 +17,11 @@ class AuthViewModel: ObservableObject {
         print("DEBUG: User session is \(String(describing: self.userSession))")
     }
     
-    func login(withEmail email: String, password: String) {}
+    func login(withEmail email: String, password: String) {
+        print("DEBUG: Login with email: \(email)")
+    }
     
-    func register(withEmail email: String, password: String, fullName: String, username: String) {}
+    func register(withEmail email: String, password: String, fullName: String, username: String) {
+        print("DEBUG: Register with email: \(email)")
+    }
 }
