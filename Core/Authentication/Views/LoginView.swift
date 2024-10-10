@@ -13,6 +13,8 @@ enum LoginViewVariantOptions: String {
 }
 
 struct LoginView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     @State private var email = ""
     @State private var password = ""
     
@@ -131,6 +133,7 @@ struct LoginView: View {
                     VStack {
                         Button(action: {
                             // TODO: Handle Sign In
+                            viewModel.login(withEmail: email, password: password)
                         }, label: {
                             Text("Sign In")
                                 .foregroundColor(Color("LightBlue"))
