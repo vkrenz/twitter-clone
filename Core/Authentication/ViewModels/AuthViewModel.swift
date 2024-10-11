@@ -29,6 +29,8 @@ class AuthViewModel: ObservableObject {
                 print("DEBUG: Failed to register user with error: \(error.localizedDescription)")
                 return
             }
+            
+            guard let user = res?.user else { return }
         }
     }
 }
