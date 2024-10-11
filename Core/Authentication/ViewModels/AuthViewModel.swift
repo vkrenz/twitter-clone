@@ -24,6 +24,11 @@ class AuthViewModel: ObservableObject {
     
     func register(withEmail email: String, password: String, fullName: String, username: String) {
         // TODO: First... Rigester User
-        print("DEBUG: Register with email: \(email)")
+        Auth.auth().createUser(withEmail: email, password: password) { res, error in
+            if let error = error {
+                print("DEBUG: Failed to register user with error: \(error.localizedDescription)")
+                return
+            }
+        }
     }
 }
