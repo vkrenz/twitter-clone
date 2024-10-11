@@ -31,6 +31,10 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = res?.user else { return }
+            self.userSession = user
+            
+            print("DEBUG: Registered user successfully")
+            print("DEBUG: User is \(String(describing: self.userSession))")
         }
     }
 }
