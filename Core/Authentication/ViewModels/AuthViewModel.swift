@@ -18,10 +18,12 @@ class AuthViewModel: ObservableObject {
     }
     
     func login(withEmail email: String, password: String) {
+        // TODO: Later then work on Login
         print("DEBUG: Login with email: \(email)")
     }
     
     func register(withEmail email: String, password: String, fullName: String, username: String) {
+        // TODO: First... Rigester User
         print("DEBUG: Register with email: \(email)")
     }
 }
