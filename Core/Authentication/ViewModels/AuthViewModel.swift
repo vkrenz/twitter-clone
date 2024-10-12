@@ -51,4 +51,12 @@ class AuthViewModel: ObservableObject {
                 }
         }
     }
+    
+    func signOut() {
+        // Client-side sign out
+        userSession = nil
+        
+        // Server=side sign out
+        try? Auth.auth().signOut()
+    }
 }
