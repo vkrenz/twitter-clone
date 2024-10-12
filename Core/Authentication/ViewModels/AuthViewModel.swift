@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
@@ -35,6 +36,16 @@ class AuthViewModel: ObservableObject {
             
             print("DEBUG: Registered user successfully")
             print("DEBUG: User is \(String(describing: self.userSession))")
+            
+            let data = [
+                "email": email,
+                "username": username.lowercased(),
+                "fullName": fullName,
+                "uid": user.uid
+            ]
+            
+            Firestore.firestore().collection("users")
+                .document(user.uid)
         }
     }
 }
