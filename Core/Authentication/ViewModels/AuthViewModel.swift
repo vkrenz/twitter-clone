@@ -46,6 +46,9 @@ class AuthViewModel: ObservableObject {
             
             Firestore.firestore().collection("users")
                 .document(user.uid)
+                .setData(data) { _ in
+                    print("DEBUG: Uploaded user data to collection(\"users\")")
+                }
         }
     }
 }
