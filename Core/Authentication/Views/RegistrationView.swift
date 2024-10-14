@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum registrationViewVariantOptions: String {
+    case Default
+    case Alternative
+}
+
 struct RegistrationView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -17,7 +22,17 @@ struct RegistrationView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    let registrationViewVariant: registrationViewVariantOptions = .Default
+    
     var body: some View {
+        if registrationViewVariant == .Default {
+            DefaultRegistrationView
+        }
+    }
+}
+
+extension RegistrationView {
+    var DefaultRegistrationView: some View {
         VStack {
             AuthHeaderView(top_title: "Get started.", bottom_title: "Create your account.", authHeaderViewVariant: .Default)
             
