@@ -28,7 +28,7 @@ struct CustomInputField: View {
                         .frame(width: 20, height: 20)
                         .foregroundColor(Color(.darkGray))
                     
-                    TextField(placeholderText, text: $text )
+                    TextField(placeholderText, text: $text)
                 }
                 Divider()
                     .background(Color(.darkGray))
@@ -43,7 +43,7 @@ struct CustomInputField: View {
                         .padding(8)
                     
                     TextField(placeholderText, text: $text)
-                        .foregroundColor(Color(.darkGray))
+                        
                 }
                 .padding(12)
                 .background(.white)
