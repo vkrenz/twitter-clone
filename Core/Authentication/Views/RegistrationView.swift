@@ -22,11 +22,93 @@ struct RegistrationView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    let registrationViewVariant: registrationViewVariantOptions = .Default
+    let registrationViewVariant: registrationViewVariantOptions = .Alternative
     
     var body: some View {
         if registrationViewVariant == .Default {
             DefaultRegistrationView
+        }
+        else if registrationViewVariant == .Alternative {
+            VStack {
+                VStack {
+                    VStack {
+                        HStack {
+                            Image("Twitter_Logo_Fill")
+                                .resizable()
+                                .scaledToFit()
+                                .padding(20)
+                                .overlay {
+                                    Circle().stroke(lineWidth: 2)
+                                }
+                                .frame(width: 80, height: 80)
+                            VStack {
+                                Text("Sign Up")
+                            }
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .padding(.vertical, 50)
+                        }
+                        VStack(spacing: 20) {
+                            CustomInputField(imageName: "envelope", placeholderText: "Email", variant: .Capsule, text: $email)
+                                .shadow(color: Color(.systemBlue).opacity(0.5), radius: 20, x: 0, y: 0)
+                            CustomInputField(imageName: "person", placeholderText: "Username", variant: .Capsule, text: $username)
+                                .shadow(color: Color(.systemBlue).opacity(0.5), radius: 20, x: 0, y: 0)
+                            CustomInputField(imageName: "person", placeholderText: "Full Name", variant: .Capsule, text: $fullName)
+                                .shadow(color: Color(.systemBlue).opacity(0.5), radius: 20, x: 0, y: 0)
+                            CustomInputField(imageName: "lock", placeholderText: "Password", variant: .Capsule, text: $password)
+                                .shadow(color: Color(.systemBlue).opacity(0.5), radius: 20, x: 0, y: 0)
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical, 40)
+                    }
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .background(Color("LightBlue"))
+    //                .background(Gradient(colors: [Color("LightBlue"), Color.white]))
+                    .foregroundColor(.white)
+                }
+                .ignoresSafeArea(.container, edges: [.leading, .trailing])
+                .navigationBarHidden(true)
+                
+                Spacer()
+                
+                VStack {
+                    VStack {
+                        Button(action: {
+                            // TODO: Handle Sign Up
+                            viewModel.login(withEmail: email, password: password)
+                        }, label: {
+                            Text("Sign Up")
+                                .foregroundColor(Color("LightBlue"))
+                                .padding(7)
+                        })
+                        .padding(12)
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            Capsule()
+                                .stroke(Color("LightBlue"), lineWidth: 2)
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 42)
+                }
+                .padding(.horizontal)
+                
+                NavigationLink {
+                    LoginView()
+                        .navigationBarHidden(true)
+                } label: {
+                    HStack {
+                        Text("Already have an account?")
+                            .font(.footnote)
+                        Text("Sign In")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                    }
+                }
+                .padding(.vertical, 10)
+                .foregroundColor(Color(.systemBlue))
+            }
         }
     }
 }
