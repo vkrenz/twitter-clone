@@ -46,9 +46,9 @@ struct RegistrationView: View {
                             }
                             .font(.title3)
                             .fontWeight(.semibold)
-                            .padding(.vertical, 50)
+                            .padding(.vertical, 100)
                         }
-                        VStack(spacing: 20) {
+                        VStack(spacing: 50) {
                             CustomInputField(imageName: "envelope", placeholderText: "Email", variant: .Capsule, text: $email)
                                 .shadow(color: Color(.systemBlue).opacity(0.5), radius: 20, x: 0, y: 0)
                             CustomInputField(imageName: "person", placeholderText: "Username", variant: .Capsule, text: $username)
@@ -59,7 +59,7 @@ struct RegistrationView: View {
                                 .shadow(color: Color(.systemBlue).opacity(0.5), radius: 20, x: 0, y: 0)
                         }
                         .padding(.horizontal)
-                        .padding(.vertical, 40)
+                        .padding(.vertical, 50)
                     }
                     .padding(.horizontal)
                     .frame(maxWidth: .infinity, alignment: .center)

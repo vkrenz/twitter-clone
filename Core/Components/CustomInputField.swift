@@ -32,7 +32,8 @@ struct CustomInputField: View {
                 }
                 Divider()
                     .background(Color(.darkGray))
-            } else if variant == .Capsule {
+            } 
+            else if variant == .Capsule {
                 HStack(spacing: 10) {
                     Image(systemName: imageName)
                         .resizable()
@@ -42,6 +43,7 @@ struct CustomInputField: View {
                         .padding(8)
                     
                     TextField(placeholderText, text: $text)
+                        .foregroundColor(Color(.darkGray))
                 }
                 .padding(12)
                 .background(.white)
