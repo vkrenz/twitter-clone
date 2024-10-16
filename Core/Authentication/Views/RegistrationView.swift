@@ -76,7 +76,7 @@ struct RegistrationView: View {
                     VStack {
                         Button(action: {
                             // TODO: Handle Sign Up
-                            viewModel.login(withEmail: email, password: password)
+                            viewModel.register(withEmail: email, password: password, fullName: fullName, username: username)
                         }, label: {
                             Text("Sign Up")
                                 .foregroundColor(Color("LightBlue"))
