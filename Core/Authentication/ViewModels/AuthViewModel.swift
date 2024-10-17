@@ -24,6 +24,10 @@ class AuthViewModel: ObservableObject {
                 print("DEBUG: Failed to sign in  user with error: \(error.localizedDescription)")
                 return
             }
+            
+            guard let user = res?.user else { return }
+            self.userSession = user
+            print("DEBUG: User signed in.")
         }
     }
     

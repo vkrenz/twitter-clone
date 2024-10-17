@@ -132,7 +132,6 @@ struct LoginView: View {
                 VStack {
                     VStack {
                         Button(action: {
-                            // TODO: Handle Sign In
                             viewModel.login(withEmail: email, password: password)
                         }, label: {
                             Text("Sign In")
