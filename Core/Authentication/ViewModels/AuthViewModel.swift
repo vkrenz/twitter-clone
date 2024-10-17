@@ -19,8 +19,12 @@ class AuthViewModel: ObservableObject {
     }
     
     func login(withEmail email: String, password: String) {
-        // TODO: Later then work on Login
-        print("DEBUG: Login with email: \(email)")
+        Auth.auth().signIn(withEmail:  email, password: password) { res, error in
+            if let error = error {
+                print("DEBUG: Failed to sign in  user with error: \(error.localizedDescription)")
+                return
+            }
+        }
     }
     
     func register(withEmail email: String, password: String, fullName: String, username: String) {
