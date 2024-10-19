@@ -15,6 +15,7 @@ enum variantOptions: String {
 struct CustomInputField: View {
     let imageName: String
     let placeholderText: String
+    var isSecureField: Bool?  = false
     let variant: variantOptions
     @Binding var text: String
      
@@ -42,7 +43,13 @@ struct CustomInputField: View {
                         .foregroundColor(Color("LightBlue"))
                         .padding(8)
                     
-                    TextField(placeholderText, text: $text)
+                    if isSecureField ?? false {
+                        SecureField(placeholderText, text: $text)
+                            .foregroundColor(Color.primary)
+                    } else {
+                        TextField(placeholderText, text: $text)
+                            .foregroundColor(Color.primary)
+                    }
                         
                 }
                 .padding(12)
@@ -57,7 +64,8 @@ struct CustomInputField: View {
     VStack {
         CustomInputField(
             imageName: "envelope",
-            placeholderText: "Email",
+            placeholderText: "Email", 
+            isSecureField: true,
             variant: .Outline,
             text: .constant("")
         )
@@ -65,7 +73,8 @@ struct CustomInputField: View {
         
         CustomInputField(
             imageName: "lock",
-            placeholderText: "Password",
+            placeholderText: "Password", 
+            isSecureField: true,
             variant: .Capsule,
             text: .constant("")
         )
