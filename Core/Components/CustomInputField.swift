@@ -44,11 +44,15 @@ struct CustomInputField: View {
                         .padding(8)
                     
                     if isSecureField ?? false {
-                        SecureField(placeholderText, text: $text)
-                            .foregroundColor(Color.primary)
+                        SuperTextField(
+                            placeholder: Text(placeholderText).foregroundColor(Color("LightBlue")),
+                            text: $text
+                        )
                     } else {
-                        TextField(placeholderText, text: $text)
-                            .foregroundColor(Color.primary)
+                        SuperTextField(
+                            placeholder: Text(placeholderText).foregroundColor(Color("LightBlue")),
+                            text: $text
+                        )
                     }
                         
                 }
@@ -58,6 +62,23 @@ struct CustomInputField: View {
             }
         }
     }
+}
+
+struct SuperTextField: View {
+    
+    var placeholder: Text
+    @Binding var text: String
+    var editingChanged: (Bool)->() = { _ in }
+    var commit: ()->() = { }
+    
+    var body: some View {
+        ZStack(alignment: .leading) {
+            if text.isEmpty { placeholder }
+            TextField("", text: $text, onEditingChanged: editingChanged, onCommit: commit)
+                .foregroundColor(Color.primary)
+        }
+    }
+    
 }
 
 #Preview {
