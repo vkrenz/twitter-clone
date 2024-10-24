@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ProfilePhotoSelectorView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            AuthHeaderView(top_title: "Create your account", bottom_title: "Select a profile photo", authHeaderViewVariant: .Default)
+            
+            Spacer()
+        }
+        .ignoresSafeArea()
     }
 }
 
